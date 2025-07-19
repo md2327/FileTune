@@ -1,0 +1,98 @@
+@import "../../vars.css";
+
+/* white box for container */
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-primary);
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+  width: 60%;
+  min-height: 10vh;
+  margin-top: 3%;
+  margin-left: 20%;
+  padding: 20px;
+}
+/* results title */
+.title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-text);
+  text-align: left;
+}
+/* keywords container */
+.keywords {
+  width: 50%;
+  resize: vertical;
+  border: 1px solid #dee2e6;
+  background-color: #f7f8ff;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 10px 0;
+}
+/* with api */
+.content {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+}
+/* with api btn */
+.withApiBtn {
+  width: 60%;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: none;
+  color: var(--color-primary);
+  background-color: #b1b0b0;
+  margin-right: 3px;
+}
+.withApiBtn:hover {
+  cursor: pointer;
+  background-color: #9c9c9c;
+}
+/* without api btn */
+.withoutApiBtn {
+  width: 70%;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 7px;
+  border: none;
+  color: var(--color-primary);
+  background-color: #b1b0b0;
+}
+.withoutApiBtn:hover {
+  cursor: pointer;
+  background-color: #9c9c9c;
+}
+/* reset button */
+.resetBtn {
+  width: 10%;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 7px;
+  color: var(--color-primary);
+  border: none;
+  background-color: #3c80ff;
+  margin-left: 45%;
+}
+.resetBtn:hover {
+  cursor: pointer;
+  background-color: #3067ce;
+}
+/* parsed results */
+.parsedData {
+  margin-top: 10px;
+  padding-bottom: 5px;
+  background-color: #f0f0f0;
+  border-radius: 7px;
+  overflow-y: auto;
+  word-wrap: break-word;
+}
+/*
+@media screen and (max-width: 600px) {
+} 
+*/

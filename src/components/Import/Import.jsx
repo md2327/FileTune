@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Import.module.css";
 
-// onFileUpload and onTextFill are props here
+// props
 export const Import = ({ onFileUpload, onTextFill }) => {
-  // js for drag and drop feature
-  const [fileUploaded, setFileUploaded] = useState(null);
-  const [textFilled, setTextFilled] = useState(null);
-  
+  const [fileUploaded, setFileUploaded] = useState(null); // state for drag and drop feature
+  const [textFilled, setTextFilled] = useState(null); // state for text area
+  const [textContent, setTextContent] = useState(""); // state for word count, empty string
+
   // allows file drop
   const handleDrop = (e) => {
     e.preventDefault(); // prevents opening file
@@ -47,17 +47,24 @@ export const Import = ({ onFileUpload, onTextFill }) => {
 
   // text area for job description
   const handleTextArea = (e) => {
-    if (e.target.value.trim() !== "") {
-    setTextFilled(true);
-    onTextFill(); // notify parent component once text fills
-  }
+    const text = e.target.value;
+    setTextContent(text); // always update local state
+    
+    if (text.trim() !== "") {
+      setTextFilled(true);
+      onTextFill(text); // pass the text content to parent component
+    } else {
+      setTextFilled(false);
+    }
   };
-
+    
   return (
     <section>
-      <h1 className={styles.title}>Resume Scanner</h1>
+      <h1 className={styles.title}>fileTune</h1>
       <div className={styles.description}>
-        Import your resume to be parsed for ATS-friendly content
+         A tool intended for students and job seekers.
+         Simply import your resume and job description, then
+        select a parsing option to begin scan.
       </div>
       <div className={styles.container}>
         <label
@@ -88,12 +95,13 @@ export const Import = ({ onFileUpload, onTextFill }) => {
       </div>
       <div className={styles.textContainer}>
         <textarea
-            name="text"
-            placeholder="Paste Your Job Description Here"
-            className={styles.textArea}
-            onChange={handleTextArea}
-            required
+          name="text"
+          placeholder="Paste Your Job Description Here"
+          className={styles.textArea}
+          onChange={handleTextArea}
+          required
         />
+        <span>Length of Text: {textContent ? textContent.length : 0} characters</span>
       </div>
     </section>
   );
